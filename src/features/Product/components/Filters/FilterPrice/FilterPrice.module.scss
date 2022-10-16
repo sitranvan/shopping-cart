@@ -1,0 +1,15 @@
+.input {
+    width: 85px;
+    border-bottom: 1px solid transparent;
+    padding: 0 10px;
+    color: #666666;
+    transition: all line 0.125s;
+}
+
+.input:hover {
+    border-color: #a0a0a0;
+}
+
+.input:focus {
+    border-color: #a0a0a0;
+}

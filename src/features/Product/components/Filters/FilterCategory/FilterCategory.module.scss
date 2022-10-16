@@ -1,0 +1,28 @@
+.list {
+    list-style: none;
+    text-align: left;
+    padding: 0 6px 12px 6px;
+}
+
+.item {
+    font-size: 1.4rem;
+    transition: all linear 0.125s;
+    display: flex;
+    align-items: center;
+    color: #666666;
+    font-weight: 400;
+}
+
+.item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.item span {
+    margin-left: 5px;
+}
+
+.item:hover {
+    color: #1976D5;
+    transform: translateX(1px);
+    cursor: pointer;
+}

@@ -1,0 +1,18 @@
+.wrapper {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    padding: 10px 40px;
+    border-radius: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
