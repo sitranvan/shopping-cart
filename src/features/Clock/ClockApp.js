@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react'
-import ClockUi from './ClockUi'
-import formatTime from './formatTime'
+import ClockUi from './components/ClockUi'
+import formatTime from './components/formatTime'
 
 function ClockApp() {
 

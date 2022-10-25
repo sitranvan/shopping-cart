@@ -2,7 +2,7 @@ import CATEGORY_LIST from './CategoryList'
 const FILTER_LIST = [
     {
         id: 1,
-        getLabel: () => 'Giao hàng miễn phí',
+        getLabel: () => 'FreeShip',
         isActive: filters => filters.isFreeShip,
         isVisible: () => true,
         isRemovable: false,
@@ -19,9 +19,9 @@ const FILTER_LIST = [
     },
     {
         id: 2,
-        getLabel: () => 'Có khuyến mãi',
+        getLabel: () => 'Khuyến mãi',
         isActive: () => true,
-        isVisible: filters => Object.keys(filters).includes('isPromotion'),
+        isVisible: filters => filters.isPromotion, // isPromotion type of boolean
         isRemovable: true,
         onRemove: filters => {
             const newFilters = { ...filters }
@@ -32,7 +32,11 @@ const FILTER_LIST = [
     },
     {
         id: 3,
-        getLabel: (filters) => `Từ ${filters.salePrice_gte} đến ${filters.salePrice_lte}`,
+        getLabel: (filters) => {
+            const priceGte = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(filters.salePrice_gte).replaceAll('.', ',')
+            const priceLte = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(filters.salePrice_lte).replaceAll('.', ',')
+            return `Từ ${priceGte.replace('₫', '')} đến ${priceLte.replace('₫', '')}`
+        },
         isActive: () => true,
         isVisible: filters => Object.keys(filters).includes('salePrice_gte') && Object.keys(filters).includes('salePrice_lte'),
         isRemovable: true,
@@ -45,7 +49,7 @@ const FILTER_LIST = [
         onToggle: null
     },
     {
-        id: 3,
+        id: 4,
         getLabel: (filters) => {
             const categoryId = filters['category.id'] - 1
             return `Danh mục ${CATEGORY_LIST[categoryId]}`

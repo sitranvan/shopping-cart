@@ -1,16 +1,12 @@
-
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import HdrWeakIcon from '@mui/icons-material/HdrWeak';
+import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import WindowIcon from '@mui/icons-material/Window';
-import LabelImportantIcon from '@mui/icons-material/LabelImportant';
 import { Box, Typography } from "@mui/material";
 import classNames from 'classnames/bind';
-import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
 import categoryService from '~/services/categoryService';
-import styles from './FilterCategory.module.scss';
 import TitleSkeleton from '../../TitleSkeleton';
-// import TitleSkeleton from '../../TitleSkeleton';
+import styles from './FilterCategory.module.scss';
 
 const cx = classNames.bind(styles)
 
@@ -52,13 +48,13 @@ function FilterCategory({ onChange }) {
                 display: 'flex',
                 alignItems: 'center',
                 userSelect: 'none'
-            }}> <WindowIcon sx={{ mr: '5px' }} />Danh mục sản phẩm</Typography>
+            }}> <WindowIcon sx={{ mr: '5px', mb: '1px' }} />Danh mục sản phẩm</Typography>
             {loading ? (<TitleSkeleton />) : (
                 <ul className={cx('list')}>
                     {categoryList.map((item) => (
                         <li className={cx('item')}
                             onClick={() => handleCategoryClick(item)} key={item.id}>
-                            <LabelImportantIcon />
+                            <BookmarkBorderOutlinedIcon />
                             <span>{item.name}</span>
                         </li>
                     ))}

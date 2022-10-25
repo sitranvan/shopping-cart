@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import storageKey from "../../constants/storageKey";
 import userApi from '../../services/userService';
 
-
 export const register = createAsyncThunk('user/register', async (payload) => {
     const data = await userApi.register(payload)
     localStorage.setItem(storageKey.USER, JSON.stringify(data.user))

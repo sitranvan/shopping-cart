@@ -1,15 +1,14 @@
-
+import PropTypes from 'prop-types';
+import classNames from 'classnames/bind';
 import { Box, Checkbox, FormControlLabel, Typography } from "@mui/material";
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
-import classNames from 'classnames/bind';
-import PropTypes from 'prop-types';
 import styles from './FilterService.module.scss';
 
 const cx = classNames.bind(styles)
 
 const services = [
-    { value: 'isPromotion', label: 'Có khuyến mãi' },
     { value: 'isFreeShip', label: 'Vận chuyển miễn phí' },
+    { value: 'isPromotion', label: 'Có khuyến mãi' }
 ]
 
 function FilterService({ filters, onChange }) {
@@ -20,7 +19,7 @@ function FilterService({ filters, onChange }) {
     }
 
     return (
-        <Box p='0 20px' minHeight='228px'>
+        <Box p='0 20px 20px 20px' >
 
             <Typography variant='h6' sx={{
                 fontSize: '1.3rem',
@@ -34,7 +33,7 @@ function FilterService({ filters, onChange }) {
                 alignItems: 'center',
                 borderTop: '1px solid #cacaca',
                 userSelect: 'none'
-            }}> <FlightTakeoffIcon sx={{ mr: '5px' }} />Dịch vụ</Typography>
+            }}> <FlightTakeoffIcon sx={{ mr: '5px', mb: '1px' }} />Dịch vụ</Typography>
 
             <ul className={cx('list')}>
                 {services.map((service) => (
@@ -59,6 +58,7 @@ function FilterService({ filters, onChange }) {
 
 FilterService.propTypes = {
     onChange: PropTypes.func,
+    filters: PropTypes.object.isRequired
 }
 
 export default FilterService

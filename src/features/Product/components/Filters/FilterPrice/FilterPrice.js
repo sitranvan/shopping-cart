@@ -1,11 +1,11 @@
-import { Box, Button, Typography } from "@mui/material";
 import { useState } from "react";
+import PropTypes from 'prop-types';
 import classNames from "classnames/bind";
+import { Box, Button, Typography } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import CurrencyFormat from 'react-currency-format';
-import styles from './FilterPrice.module.scss'
+import styles from './FilterPrice.module.scss';
 
 const cx = classNames.bind(styles)
 function FilterPrice({ onChange }) {
@@ -20,7 +20,7 @@ function FilterPrice({ onChange }) {
 
         setValues(prevValues => ({
             ...prevValues,
-            [e.target.name]: e.target.value.replace(',', '')
+            [e.target.name]: e.target.value.replaceAll(',', '')
         }))
     }
 
@@ -48,15 +48,15 @@ function FilterPrice({ onChange }) {
                 borderTop: '1px solid #cacaca',
                 userSelect: 'none'
             }}>
-                <MonetizationOnIcon sx={{ mr: '5px' }} />
+                <MonetizationOnIcon sx={{ mr: '5px', mb: '1px' }} />
                 Theo giá
             </Typography>
 
-            <Box sx={{ p: '0 6px' }}>
+            <Box >
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <CurrencyFormat className={cx('input')} name="salePrice_gte" value={values.salePrice_gte} onChange={handleChange} thousandSeparator={true} />
+                    <CurrencyFormat thousandSeparator={true} className={cx('input')} name="salePrice_gte" value={values.salePrice_gte} onChange={handleChange} />
                     <ArrowForwardIcon />
-                    <CurrencyFormat className={cx('input')} name="salePrice_lte" value={values.salePrice_lte} onChange={handleChange} thousandSeparator={true} />
+                    <CurrencyFormat thousandSeparator={true} className={cx('input')} name="salePrice_lte" value={values.salePrice_lte} onChange={handleChange} />
                 </Box>
                 <Box sx={{
                     textAlign: 'left',
@@ -67,6 +67,10 @@ function FilterPrice({ onChange }) {
             </Box>
         </Box>
     )
+}
+
+FilterPrice.propTypes = {
+    onChange: PropTypes.func.isRequired
 }
 
 export default FilterPrice

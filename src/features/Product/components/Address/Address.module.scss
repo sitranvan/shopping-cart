@@ -1,0 +1,23 @@
+.wrapper {
+    padding: 0 20px 50px 20px;
+}
+
+.inner {
+    font-weight: 400;
+    font-size: 1.4rem;
+    transition: all linear 0.125s;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.address {
+    color: #666666;
+}
+
+.icon {
+    color: #E61A23;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    text-align: left;
+}
