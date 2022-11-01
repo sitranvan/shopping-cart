@@ -1,4 +1,4 @@
-import { requestProducts } from '../utils/request'
+import { requestProducts } from '../utils'
 
 export const getProduct = async (params) => {
 

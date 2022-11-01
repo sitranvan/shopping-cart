@@ -1,6 +1,13 @@
-import { requestEz } from '~/utils/request';
+import { requestEz } from '~/utils';
 
 const productService = {
+
+    getId: async (id) => {
+        const url = `/products/${id}`
+        const res = await requestEz.get(url)
+        return res.data
+    },
+
     async getAll(params) {
         // Transform _page to _start
         const newParams = { ...params };

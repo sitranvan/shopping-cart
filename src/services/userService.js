@@ -1,5 +1,5 @@
 
-import { requestEz } from "../utils/request"
+import { requestEz } from "../utils"
 
 const userApi = {
     register: async (data) => {

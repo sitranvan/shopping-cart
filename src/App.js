@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.min.css";
+import Header from './layouts/components/Header';
 import Container from './layouts/components/Container';
 import Footer from './layouts/components/Footer';
-import Header from './layouts/components/Header';
 
 import { publicRoutes } from './routes';
 function App() {

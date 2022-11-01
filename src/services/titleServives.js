@@ -1,5 +1,5 @@
 
-import { request } from '../utils/request'
+import { request } from '../utils'
 
 export const getTitle = async (params) => {
     const url = 'posts'

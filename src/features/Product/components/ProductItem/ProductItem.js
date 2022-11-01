@@ -1,17 +1,28 @@
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
 import freeShip from '~/assets/images/free-ship.png'
 import defaultProduct from '~/assets/images/default-product.webp'
 import promotion from '~/assets/images/promotion.png'
+import { formatCurrency } from '~/utils';
 
 function ProductItem({ product }) {
+    const history = useNavigate()
+    const handleClickProduct = () => {
+        history({
+            pathname: `/products/${product.id}`
+        })
+    }
+
+
     const url = product.thumbnail?.url
     const thumbnailUrl = product.thumbnail
         ? `https://api.ezfrontend.com${url}`
         : defaultProduct
 
+
     return (
-        <Box sx={{
+        <Box onClick={handleClickProduct} sx={{
             backgroundColor: '#fff',
             '&:hover': {
                 cursor: 'pointer',
@@ -49,7 +60,6 @@ function ProductItem({ product }) {
                             fontWeight: 400,
                             textTransform: 'uppercase',
                             fontSize: '1.3rem',
-
                         }}
                     >{product.name}
                     </Typography>
@@ -59,7 +69,7 @@ function ProductItem({ product }) {
                             fontSize: '1.5rem',
                             mt: '2px',
                         }}>
-                            {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(product.salePrice)}
+                            {formatCurrency(product.salePrice)}
                         </Typography>
                         {product.promotionPercent > 0 && (<Typography sx={{
                             ml: 1,
@@ -82,7 +92,7 @@ function ProductItem({ product }) {
                     }} />)}
                 </Box>
             </Box>
-        </Box >
+        </Box>
     )
 }
 

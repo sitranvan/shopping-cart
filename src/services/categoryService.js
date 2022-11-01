@@ -1,4 +1,4 @@
-import { requestEz } from "~/utils/request"
+import { requestEz } from "~/utils"
 
 const categoryService = {
     getAll: async (params) => {

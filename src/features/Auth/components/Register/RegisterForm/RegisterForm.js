@@ -86,7 +86,7 @@ function RegisterForm({ onSubmitForm }) {
                         <p className={cx('message')}>{errors.password?.message}</p>
                     </div>
                     <div className={cx('form-input')}>
-                        <input {...register('retypePassword')} type="text" placeholder="Retype Password" className={cx({ invalid: errors.retypePassword })} />
+                        <input {...register('retypePassword')} type="password" placeholder="Retype Password" className={cx({ invalid: errors.retypePassword })} />
                         <p className={cx('message')}>{errors.retypePassword?.message}</p>
                     </div>
                     <button className={cx('submit')}>Create an account</button>

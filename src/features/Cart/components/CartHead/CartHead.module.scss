@@ -1,0 +1,31 @@
+.list {
+    list-style: none;
+}
+
+.item {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: rgb(36, 36, 36);
+    text-align: left;
+    white-space: nowrap;
+
+    &:first-child {
+        min-width: 340px;
+    }
+
+    &:nth-child(2) {
+        min-width: 85px;
+    }
+
+    &:nth-child(3) {
+        min-width: 106px;
+    }
+
+    &:nth-child(4) {
+        min-width: 100px;
+    }
+
+    &:last-child {
+        min-width: 22px;
+    }
+}
